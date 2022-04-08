@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+
 const Movie = ({ id }) => {
   return (
     <div>
-      <h1>{id}</h1>
+      <Link to={`/${id}`}>{id}</Link>
     </div>
   );
 };

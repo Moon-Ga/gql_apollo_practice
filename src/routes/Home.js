@@ -11,7 +11,10 @@ const Home = () => {
     }
   `;
 
-  const { data, loading } = useQuery(GET_MOVIES);
+  const { data, error, loading } = useQuery(GET_MOVIES);
+  if (error) {
+    console.log(error);
+  }
 
   return (
     <div className="w-full flex flex-col items-center ">
