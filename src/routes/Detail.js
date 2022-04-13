@@ -7,11 +7,13 @@ const Detail = () => {
   const GET_MOVIE = gql`
     query getMovie($id: Int!) {
       movie(id: $id) {
+        id
         title
         medium_cover_image
         language
         rating
         description_intro
+        isLiked @client
       }
     }
   `;
@@ -34,7 +36,9 @@ const Detail = () => {
       ) : (
         <>
           <div className="w-1/2 ml-2">
-            <h1 className="text-6xl mb-4">{data.movie.title}</h1>
+            <h1 className="text-6xl mb-4">
+              {data.movie.title} {data.movie.isLiked ? "❤" : "🤍"}
+            </h1>
             <h4 className="text-4xl mb-3">
               {data.movie.language} | {data.movie.rating}
             </h4>
